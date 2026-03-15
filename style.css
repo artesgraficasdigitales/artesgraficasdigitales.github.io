@@ -6,7 +6,12 @@
     font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+}
 
 body {
     background-color: #f0f7ff;
@@ -16,7 +21,7 @@ body {
 }
 
 /* =========================================
-   MENÚ Y LOGO (RECUPERANDO EL ANCHO TOTAL)
+   MENÚ Y LOGO (DISEÑO PC)
    ========================================= */
 header {
     background: #002b5c; 
@@ -30,7 +35,6 @@ header {
     left: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    overflow: hidden;
 }
 
 header::before {
@@ -48,82 +52,49 @@ header::before {
     left: 0;
 }
 
-/* VOLVEMOS AL 100% PARA QUE EL LOGO SE VAYA A LA IZQUIERDA */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 100%; 
-    margin: 0; 
     width: 100%;
-    padding: 0 40px; /* Aumentamos el padding para que no pegue al borde físico */
+    padding: 0 30px; 
     position: relative; 
     z-index: 5;
 }
 
-.logo-img { 
-    height: 50px; 
-    width: auto; 
-    display: block; 
-    position: relative; 
-    z-index: 10; 
-}
+.logo-img { height: 50px; width: auto; display: block; position: relative; z-index: 10; }
 
-nav ul { 
-    display: flex; 
-    list-style: none; 
-    align-items: center; 
-}
+nav ul { display: flex; list-style: none; align-items: center; }
 
 nav ul li a { 
-    color: #fff; 
-    text-decoration: none; 
-    padding: 10px 15px; 
-    font-weight: 500; 
-    transition: 0.3s; 
+    color: #fff; text-decoration: none; padding: 10px 15px; 
+    font-weight: 500; transition: 0.3s; 
 }
 
 nav ul li a:hover { color: #87CEEB; }
 
-.emoji-separador {
-    font-size: 1.1rem;
-    padding: 0 5px;
-    opacity: 0.8;
-    user-select: none;
-    pointer-events: none;
-}
+.emoji-separador { font-size: 1.1rem; padding: 0 5px; opacity: 0.8; }
 
 /* =========================================
-   SECCIÓN HERO
+   SECCIÓN HERO (PORTADA)
    ========================================= */
 .hero {
     height: 85vh;
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('img/fondo-escritorio.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-size: cover; background-position: center; background-attachment: fixed;
     display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
 }
 
 .hero-content {
-    background: rgba(0, 0, 0, 0.6); 
-    padding: 40px;
-    border-radius: 20px;
-    backdrop-filter: blur(8px);
-    max-width: 850px;
-    margin: 0 20px;
+    background: rgba(0, 0, 0, 0.6); padding: 40px; border-radius: 20px;
+    backdrop-filter: blur(8px); max-width: 850px; margin: 0 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-logo-main {
-    max-width: 550px; 
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    image-rendering: -webkit-optimize-contrast;
+    max-width: 550px; width: 100%; height: auto; margin-bottom: 20px;
+    display: block; margin-left: auto; margin-right: auto;
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
 }
 
@@ -133,52 +104,25 @@ nav ul li a:hover { color: #87CEEB; }
    MISIÓN Y VISIÓN
    ========================================= */
 .mision-vision {
-    background-color: #eef7ff; 
-    padding: 100px 0;
-    border-top: 1px solid #ddecff;
-    border-bottom: 1px solid #ddecff;
+    background-color: #eef7ff; padding: 100px 0;
+    border-top: 1px solid #ddecff; border-bottom: 1px solid #ddecff;
 }
 
-.mv-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-}
+.mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
 
 .mv-item {
-    background: #ffffff; 
-    padding: 50px;
-    border-radius: 25px;
-    border-bottom: 5px solid #87CEEB;
-    box-shadow: 0 15px 35px rgba(0, 43, 92, 0.08); 
-    transition: 0.4s ease;
-    text-align: center;
+    background: #ffffff; padding: 50px; border-radius: 25px;
+    border-bottom: 5px solid #87CEEB; box-shadow: 0 15px 35px rgba(0, 43, 92, 0.08); 
+    transition: 0.4s ease; text-align: center;
 }
 
-.mv-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 43, 92, 0.15);
-}
+.mv-item:hover { transform: translateY(-10px); }
 
-.mv-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    display: block;
-}
+.mv-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
 
-.mv-item h3 {
-    font-family: 'Montserrat', sans-serif;
-    color: #002b5c;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: 900;
-}
+.mv-item h3 { font-family: 'Montserrat', sans-serif; color: #002b5c; font-size: 2rem; margin-bottom: 20px; font-weight: 900; }
 
-.mv-item p {
-    color: #444;
-    font-size: 1.15rem;
-    line-height: 1.7;
-}
+.mv-item p { color: #444; font-size: 1.15rem; line-height: 1.7; }
 
 /* =========================================
    TÍTULOS Y CONTENEDORES
@@ -186,154 +130,187 @@ nav ul li a:hover { color: #87CEEB; }
 .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
 
 .container h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3.2rem;
-    font-weight: 900;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 50px;
+    font-family: 'Montserrat', sans-serif; font-size: 3.2rem; font-weight: 900;
+    text-align: center; text-transform: uppercase; margin-bottom: 50px;
     background: linear-gradient(to right, #002b5c, #4A90E2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
-/* --- SERVICIOS --- */
+/* BENEFICIOS */
+.beneficios {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; text-align: center;
+}
+
+.beneficio-item {
+    background: #ffffff; padding: 40px; border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-bottom: 6px solid #87CEEB;
+}
+
+/* =========================================
+   SERVICIOS
+   ========================================= */
 .servicio-card {
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: row; 
-    height: 220px; 
-    margin-bottom: 30px;
-    transition: 0.3s;
+    background: #fff; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: flex;
+    flex-direction: row; height: 220px; margin-bottom: 30px; transition: 0.3s;
 }
-
-.servicio-card:hover { transform: scale(1.01); }
 
 .servicio-img { 
     width: 40%; 
     height: 100%; 
     background-size: cover; 
     background-position: center; 
+    background-repeat: no-repeat;
 }
 
-.servicio-texto { 
-    width: 60%; 
-    padding: 20px 40px; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-}
-
+.servicio-texto { width: 60%; padding: 20px 40px; display: flex; flex-direction: column; justify-content: center; text-align: left; }
 .servicio-texto h3 { color: #002b5c; margin-bottom: 8px; font-size: 1.6rem; }
-.servicio-texto p { color: #555; font-size: 1.05rem; line-height: 1.4; }
 
-/* RUTAS DE IMÁGENES */
+/* RUTAS IMÁGENES SERVICIOS */
 .img-tarjetas { background-image: url('img/tarjetas.jpg'); }
 .img-volantes { background-image: url('img/volantes.jpg'); }
 .img-papeleria { background-image: url('img/papeleria.jpg'); }
 .img-calendario { background-image: url('img/calendario.jpg'); }
 .img-serigrafia { background-image: url('img/serigrafia.jpg'); }
 
-/* --- FORMULARIO --- */
+/* =========================================
+   FORMULARIO (PÁGINA COTIZACIÓN) - RECUPERADO
+   ========================================= */
 .form-box {
-    background: #002b5c; color: #fff; padding: 45px;
-    border-radius: 20px; max-width: 700px; margin: auto;
+    background: #002b5c; 
+    color: #fff; 
+    padding: 45px;
+    border-radius: 20px; 
+    max-width: 700px; 
+    margin: auto;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-.form-box label { display: block; margin-bottom: 8px; color: #87CEEB; font-weight: bold; }
-
-input, textarea {
-    width: 100%; padding: 15px; margin-bottom: 20px;
-    border-radius: 8px; border: none; font-size: 16px; 
+.form-box label { 
+    display: block; 
+    margin-bottom: 8px; 
+    color: #87CEEB; 
+    font-weight: bold; 
 }
 
+input, textarea { 
+    width: 100%; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border-radius: 8px; 
+    border: none; 
+    font-size: 16px; 
+    font-family: inherit;
+}
+
+/* =========================================
+   BOTONES Y CTA CENTRAL
+   ========================================= */
 .btn-azul {
     background: #87CEEB; color: #002b5c; padding: 18px 36px;
     border: none; border-radius: 10px; font-weight: 800;
     text-transform: uppercase; text-decoration: none; display: inline-block; transition: 0.4s;
+    cursor: pointer;
 }
 
 .btn-azul:hover { background: #5fbce2; color: #fff; transform: scale(1.03); }
 
-/* --- FOOTER --- */
-footer {
-    background: #002b5c;
-    color: #fff;
-    padding: 25px 20px 15px; 
-    margin-top: 30px;
-}
+.cta-secundario { background-color: #e3f2fd; padding: 100px 20px; text-align: center; border-top: 1px solid #bbdefb; }
+.cta-secundario h2 { font-size: 2.8rem; margin-bottom: 20px; background: none; -webkit-text-fill-color: #002b5c; }
+.cta-secundario p { font-size: 1.4rem; color: #444; max-width: 800px; margin: 0 auto 40px; font-weight: 500; }
 
-.footer-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px;
-    border-bottom: 1px solid rgba(135, 206, 235, 0.1);
-    padding-bottom: 15px;
-}
-
+/* =========================================
+   FOOTER
+   ========================================= */
+footer { background: #002b5c; color: #fff; padding: 25px 20px 15px; margin-top: 30px; }
+.footer-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; border-bottom: 1px solid rgba(135, 206, 235, 0.1); padding-bottom: 15px; }
 .footer-column { flex: 1; }
-.footer-column h4, .footer-column h5 { color: #87CEEB; margin-bottom: 8px; }
-.footer-column p { font-size: 0.85rem; margin-bottom: 4px; opacity: 0.8; }
 .footer-bottom { text-align: center; padding-top: 10px; font-size: 0.75rem; color: #87CEEB; opacity: 0.6; }
 
 /* =========================================
-   RESPONSIVO (CELULAR)
+   RESPONSIVO (AJUSTES PARA CELULAR)
    ========================================= */
-@media (max-width: 768px) {
-    header {
-        height: auto; 
-        padding: 10px 0;
+@media screen and (max-width: 768px) {
+    header { 
+        height: auto !important; 
+        padding: 15px 0 !important; 
+        position: fixed !important;
     }
-
-    nav {
-        flex-direction: column;
-        gap: 12px;
-        padding: 0 10px; /* Menos espacio en móvil */
-    }
-
-    .logo-img { height: 35px; }
-
-    nav ul {
-        width: 100%;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.05); 
-        padding: 5px 0;
-    }
-
-    nav ul li a {
-        font-size: 0.95rem; 
-        padding: 8px 10px;
-        font-weight: 700;
-    }
-
-    body {
-        padding-top: 120px; 
-    }
-
-    .hero-logo-main { max-width: 280px; }
-    .container h2 { font-size: 1.8rem; margin-bottom: 25px; }
-
-    .mv-grid { grid-template-columns: 1fr; gap: 30px; }
-    .servicio-card { flex-direction: column; height: auto; }
-    .servicio-img { width: 100%; height: 200px; }
-    .servicio-texto { text-align: center; padding: 25px; }
     
-    .emoji-separador { display: none; }
+    header::before {
+        display: block !important;
+        top: 18px !important;
+        font-size: 18px !important;
+        letter-spacing: 25px !important;
+        padding-left: 0 !important;
+        text-align: center !important;
+        width: 100% !important;
+        opacity: 0.15 !important;
+    }
     
-    footer { padding: 20px 15px; }
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
+    nav { flex-direction: column !important; gap: 12px !important; padding: 0 10px !important; }
+    
+    .logo-img { 
+        height: 35px !important; 
+        margin: 0 auto !important; 
+        position: relative !important; 
+        z-index: 10 !important;
+    }
+    
+    nav ul { 
+        width: 100% !important; justify-content: center !important; 
+        background: rgba(255, 255, 255, 0.05) !important; padding: 5px 0 !important; 
+        border-radius: 8px !important;
+    }
+    
+    nav ul li a { 
+        font-size: 1rem !important; 
+        padding: 8px 10px !important; 
+        font-weight: 700 !important; 
+        text-transform: uppercase !important;
+    }
+    
+    body { padding-top: 140px !important; }
+    
+    .hero { height: auto !important; padding: 60px 0 !important; background-attachment: scroll !important; }
+    .hero-content { padding: 20px !important; width: 92% !important; margin: 0 auto !important; }
+    .hero-logo-main { max-width: 260px !important; }
+    .hero p { font-size: 1.1rem !important; }
+    
+    .container h2 { font-size: 1.8rem !important; margin-bottom: 25px !important; }
+
+    .mv-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+    
+    .servicio-card { flex-direction: column !important; height: auto !important; }
+    
+    .servicio-img { 
+        width: 100% !important; 
+        height: 200px !important; 
+        background-size: cover !important; 
+        background-position: center center !important;
+    }
+    
+    .servicio-texto { width: 100% !important; text-align: center !important; padding: 25px !important; }
+    .servicio-texto h3 { font-size: 1.4rem !important; }
+    
+    .emoji-separador { display: none !important; }
+
+    .footer-container { 
+        flex-direction: column !important; 
+        text-align: center !important; 
+        align-items: center !important; 
+        gap: 20px !important; 
     }
 
-    .container { padding: 30px 15px; }
-    .form-box { padding: 25px; }
+    .footer-column {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .container { padding: 40px 15px !important; width: 100% !important; }
+
+    /* Ajuste de formulario en móvil */
+    .form-box { padding: 25px !important; }
 }
