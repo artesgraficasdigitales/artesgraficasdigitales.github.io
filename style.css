@@ -16,7 +16,7 @@ body {
 }
 
 /* =========================================
-   MENÚ Y LOGO (IZQUIERDA + EMOJIS SEPARADORES)
+   MENÚ Y LOGO (RECUPERANDO EL ANCHO TOTAL)
    ========================================= */
 header {
     background: #002b5c; 
@@ -48,15 +48,15 @@ header::before {
     left: 0;
 }
 
-/* AQUÍ ESTÁ EL CAMBIO PARA PC: Añadimos max-width y margin auto */
+/* VOLVEMOS AL 100% PARA QUE EL LOGO SE VAYA A LA IZQUIERDA */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1100px; /* Igual que el container de las otras páginas */
-    margin: 0 auto; 
+    max-width: 100%; 
+    margin: 0; 
     width: 100%;
-    padding: 0 20px;
+    padding: 0 40px; /* Aumentamos el padding para que no pegue al borde físico */
     position: relative; 
     z-index: 5;
 }
@@ -94,7 +94,7 @@ nav ul li a:hover { color: #87CEEB; }
 }
 
 /* =========================================
-   SECCIÓN HERO (PORTADA CON LOGO GRANDE)
+   SECCIÓN HERO
    ========================================= */
 .hero {
     height: 85vh;
@@ -130,7 +130,7 @@ nav ul li a:hover { color: #87CEEB; }
 .hero p { font-size: 1.5rem; text-shadow: none; margin-top: 10px; }
 
 /* =========================================
-   MISIÓN Y VISIÓN (FONDO DE CONTRASTE)
+   MISIÓN Y VISIÓN
    ========================================= */
 .mision-vision {
     background-color: #eef7ff; 
@@ -181,8 +181,10 @@ nav ul li a:hover { color: #87CEEB; }
 }
 
 /* =========================================
-   TÍTULOS DE PÁGINAS (GRANDES)
+   TÍTULOS Y CONTENEDORES
    ========================================= */
+.container { max-width: 1100px; margin: auto; padding: 60px 20px; }
+
 .container h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 3.2rem;
@@ -195,23 +197,7 @@ nav ul li a:hover { color: #87CEEB; }
     -webkit-text-fill-color: transparent;
 }
 
-/* =========================================
-   CUADROS DE BENEFICIOS Y SERVICIOS
-   ========================================= */
-.container { max-width: 1100px; margin: auto; padding: 60px 20px; }
-
-.beneficios {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px; text-align: center;
-}
-
-.beneficio-item {
-    background: #ffffff; padding: 40px; border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    border-bottom: 6px solid #87CEEB; transition: 0.3s;
-}
-
-/* --- DISEÑO DE SERVICIOS HORIZONTAL COMPACTO --- */
+/* --- SERVICIOS --- */
 .servicio-card {
     background: #fff;
     border-radius: 20px;
@@ -231,10 +217,6 @@ nav ul li a:hover { color: #87CEEB; }
     height: 100%; 
     background-size: cover; 
     background-position: center; 
-    background-repeat: no-repeat;
-    image-rendering: -webkit-optimize-contrast; 
-    image-rendering: high-quality;
-    filter: contrast(1.08) brightness(1.02) saturate(1.05);
 }
 
 .servicio-texto { 
@@ -243,7 +225,6 @@ nav ul li a:hover { color: #87CEEB; }
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
-    text-align: left; 
 }
 
 .servicio-texto h3 { color: #002b5c; margin-bottom: 8px; font-size: 1.6rem; }
@@ -256,9 +237,7 @@ nav ul li a:hover { color: #87CEEB; }
 .img-calendario { background-image: url('img/calendario.jpg'); }
 .img-serigrafia { background-image: url('img/serigrafia.jpg'); }
 
-/* =========================================
-   FORMULARIO (PÁGINA COTIZACIÓN)
-   ========================================= */
+/* --- FORMULARIO --- */
 .form-box {
     background: #002b5c; color: #fff; padding: 45px;
     border-radius: 20px; max-width: 700px; margin: auto;
@@ -272,9 +251,6 @@ input, textarea {
     border-radius: 8px; border: none; font-size: 16px; 
 }
 
-/* =========================================
-   BOTONES Y SECCIÓN DE CIERRE (CTA)
-   ========================================= */
 .btn-azul {
     background: #87CEEB; color: #002b5c; padding: 18px 36px;
     border: none; border-radius: 10px; font-weight: 800;
@@ -283,21 +259,7 @@ input, textarea {
 
 .btn-azul:hover { background: #5fbce2; color: #fff; transform: scale(1.03); }
 
-.cta-secundario {
-    background-color: #e3f2fd; padding: 100px 20px;
-    text-align: center; border-top: 1px solid #bbdefb;
-}
-
-.cta-secundario h2 { font-size: 2.8rem; margin-bottom: 20px; background: none; -webkit-text-fill-color: #002b5c; }
-
-.cta-secundario p {
-    font-size: 1.4rem; color: #444; max-width: 800px;
-    margin: 0 auto 40px; font-weight: 500;
-}
-
-/* =========================================
-   FOOTER COMPACTO
-   ========================================= */
+/* --- FOOTER --- */
 footer {
     background: #002b5c;
     color: #fff;
@@ -317,35 +279,12 @@ footer {
 }
 
 .footer-column { flex: 1; }
-
-.footer-column h4 {
-    color: #87CEEB;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-}
-
-.footer-column h5 {
-    color: #87CEEB;
-    font-size: 0.85rem;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
+.footer-column h4, .footer-column h5 { color: #87CEEB; margin-bottom: 8px; }
 .footer-column p { font-size: 0.85rem; margin-bottom: 4px; opacity: 0.8; }
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 10px;
-    font-size: 0.75rem;
-    color: #87CEEB;
-    opacity: 0.6;
-}
+.footer-bottom { text-align: center; padding-top: 10px; font-size: 0.75rem; color: #87CEEB; opacity: 0.6; }
 
 /* =========================================
-   RESPONSIVO (AJUSTES PARA CELULAR)
+   RESPONSIVO (CELULAR)
    ========================================= */
 @media (max-width: 768px) {
     header {
@@ -356,7 +295,7 @@ footer {
     nav {
         flex-direction: column;
         gap: 12px;
-        max-width: 100%; /* En móvil usamos todo el ancho */
+        padding: 0 10px; /* Menos espacio en móvil */
     }
 
     .logo-img { height: 35px; }
@@ -369,10 +308,9 @@ footer {
     }
 
     nav ul li a {
-        font-size: 1rem; 
+        font-size: 0.95rem; 
         padding: 8px 10px;
         font-weight: 700;
-        text-transform: uppercase;
     }
 
     body {
